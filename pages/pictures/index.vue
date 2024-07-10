@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import RandomPicture from "../../components/RandomPicture/RandomPicture.vue";
+
 definePageMeta({
   layout: "default",
 });
 </script>
 <template>
   <Container>
-    <div>test</div>
+    <RandomPicture />
   </Container>
 </template>
