@@ -12,7 +12,6 @@
         @click="fetchRandomImage"
         class="bg-green-500 flex hover:bg-green-400 transition relative py-4 px-4 rounded disabled:bg-gray-500 w-full md:max-w-[200px]"
       >
-        <!--  -->
         <div v-if="isDisabled" class="w-5 flex flex-col justify-center">
           <Loader />
         </div>
