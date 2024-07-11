@@ -21,9 +21,6 @@ export default defineEventHandler((event) => {
 
   const randomIndex = Math.floor(Math.random() * availableImages.length);
   const randomImage = availableImages[randomIndex];
-  // const imageUrl = `/images/${imageDir}/${randomImage}`;
-
-  console.log(randomImage, "random img");
 
   return randomImage;
 });
