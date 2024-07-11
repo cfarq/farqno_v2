@@ -12,7 +12,7 @@ export default defineEventHandler((event) => {
   const __dirname = dirname(__filename);
 
   // Use the relative path to the public folder
-  const imagesDir = join(__dirname, "../../public/images", imageDir);
+  const imagesDir = join(__dirname, "../../images", imageDir);
   let files;
 
   try {
