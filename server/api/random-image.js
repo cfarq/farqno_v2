@@ -1,6 +1,5 @@
 import { readdirSync } from "fs";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
+import { join } from "path";
 import { getQuery } from "h3";
 
 export default defineEventHandler((event) => {
@@ -8,18 +7,8 @@ export default defineEventHandler((event) => {
   const imageDir = query.route;
   const currentImageUrl = query.currentImageUrl;
 
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = dirname(__filename);
-
-  // Use the relative path to the public folder
-  const imagesDir = join(__dirname, "/images", imageDir);
-  let files;
-
-  try {
-    files = readdirSync(imagesDir);
-  } catch (err) {
-    return { error: `Directory not found: ${err}` }; // Handle case when directory doesn't exist
-  }
+  const imagesDir = join(process.cwd(), `public/images/${imageDir}`);
+  const files = readdirSync(imagesDir);
 
   const availableImages = files.filter((file) => {
     const imageUrl = `/images/${imageDir}/${file}`;
@@ -32,6 +21,9 @@ export default defineEventHandler((event) => {
 
   const randomIndex = Math.floor(Math.random() * availableImages.length);
   const randomImage = availableImages[randomIndex];
+  // const imageUrl = `/images/${imageDir}/${randomImage}`;
+
+  console.log(randomImage, "random img");
 
   return randomImage;
 });
