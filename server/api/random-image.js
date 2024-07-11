@@ -18,7 +18,11 @@ export default defineEventHandler((event) => {
   try {
     files = readdirSync(imagesDir);
   } catch (err) {
-    return { error: `Directory not found: ${err}` }; // Handle case when directory doesn't exist
+    return {
+      error: `Directory not found: ${err}`,
+      filename: __filename,
+      dirname: __dirname,
+    }; // Handle case when directory doesn't exist
   }
 
   const availableImages = files.filter((file) => {
