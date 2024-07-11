@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import RandomPicture from "../../components/RandomPicture/RandomPicture.vue";
+import RandomPicture from "@/components/RandomPicture/RandomPicture.vue";
 
 definePageMeta({
   layout: "default",
@@ -7,6 +7,6 @@ definePageMeta({
 </script>
 <template>
   <Container>
-    <RandomPicture />
+    <RandomPicture route="victor" />
   </Container>
 </template>
