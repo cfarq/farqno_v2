@@ -7,7 +7,7 @@ export default defineEventHandler((event) => {
   const imageDir = query.route;
   const currentImageUrl = query.currentImageUrl;
 
-  const imagesDir = join(process.cwd(), `public/images/${imageDir}`);
+  const imagesDir = join(process.cwd(), `/images/${imageDir}`);
   const files = readdirSync(imagesDir);
 
   const availableImages = files.filter((file) => {
@@ -21,9 +21,6 @@ export default defineEventHandler((event) => {
 
   const randomIndex = Math.floor(Math.random() * availableImages.length);
   const randomImage = availableImages[randomIndex];
-  // const imageUrl = `/images/${imageDir}/${randomImage}`;
-
-  console.log(randomImage, "random img");
 
   return randomImage;
 });
