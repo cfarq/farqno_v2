@@ -12,18 +12,13 @@ export default defineEventHandler((event) => {
   const __dirname = dirname(__filename);
 
   // Use the relative path to the public folder
-  const imagesDir = join("~/../../public/images", imageDir);
+  const imagesDir = join(__dirname, "/images", imageDir);
   let files;
 
   try {
     files = readdirSync(imagesDir);
   } catch (err) {
-    return {
-      error: `Directory not found: ${err}`,
-      filename: __filename,
-      dirname: __dirname,
-      event: event,
-    }; // Handle case when directory doesn't exist
+    return { error: `Directory not found: ${err}` }; // Handle case when directory doesn't exist
   }
 
   const availableImages = files.filter((file) => {
