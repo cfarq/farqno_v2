@@ -1,7 +1,11 @@
 <template>
   <div>
     <div v-if="imageUrl" class="overflow-hidden rounded-lg shadow-lg">
-      <img class="w-full md:w-[600px]" :src="imageUrl" alt="Random Image" />
+      <NuxtImg
+        class="w-full md:w-[600px]"
+        :src="`/images/${props.route}/${imageUrl}`"
+        alt="Random Image"
+      />
     </div>
     <div v-else class="my-6 flex justify-center">
       <Loader />
