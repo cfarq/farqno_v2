@@ -12,7 +12,7 @@ export default defineEventHandler((event) => {
   const __dirname = dirname(__filename);
 
   // Use the relative path to the public folder
-  const imagesDir = join(window.location.host, "../../public/images", imageDir);
+  const imagesDir = join("../../public/images", imageDir);
   let files;
 
   try {
@@ -22,6 +22,7 @@ export default defineEventHandler((event) => {
       error: `Directory not found: ${err}`,
       filename: __filename,
       dirname: __dirname,
+      query: query,
     }; // Handle case when directory doesn't exist
   }
 
