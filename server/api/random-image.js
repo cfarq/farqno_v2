@@ -22,7 +22,7 @@ export default defineEventHandler((event) => {
       error: `Directory not found: ${err}`,
       filename: __filename,
       dirname: __dirname,
-      query: query,
+      event: event,
     }; // Handle case when directory doesn't exist
   }
 
